@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_employee.css') }}">
+    <title>Add Employee</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Add Employee</h1>
+        </header>
+        <form method="post" action="{{ url_for('add_employee') }}" class="employee-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                {% for department in departments %}
+                    <option value="{{ department[0] }}">{{ department[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="position">Position:</label>
+            <select id="position" name="position" required>
+                {% for position in positions %}
+                    <option value="{{ position[0] }}">{{ position[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="project">Project:</label>
+            <select id="project" name="project" required>
+                {% for project in projects %}
+                    <option value="{{ project[0] }}">{{ project[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="skill">Skill:</label>
+            <select id="skill" name="skill" required>
+                {% for skill in skills %}
+                    <option value="{{ skill[0] }}">{{ skill[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                {% for role in roles %}
+                    <option value="{{ role[0] }}">{{ role[1] }}</option>
+                {% endfor %}
+            </select>
+
+            <input type="submit" value="Add Employee">
+        </form>
+    </div>
+</body>
+</html>
